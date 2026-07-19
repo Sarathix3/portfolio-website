@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>B.Sarathi — Software Developer</title>
+<meta name="description" content="Portfolio of B. Sarathi, B.Tech IT student and aspiring Software Development Engineer." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Custom cursor dot -->
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- ===== TITLE BAR (macOS-style window chrome) ===== -->
+<div class="titlebar">
+  <div class="titlebar-dots">
+    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+  </div>
+  <div class="titlebar-path">sarathi-b — portfolio — VS Code</div>
+  <div class="titlebar-status"><span class="status-dot"></span> build passing</div>
+</div>
+
+<!-- ===== TAB BAR / NAV ===== -->
+<nav class="tabbar" id="tabbar">
+  <button class="tab active" data-target="home">Home<span class="tab-ext">.jsx</span></button>
+  <button class="tab" data-target="about">About<span class="tab-ext">.md</span></button>
+  <button class="tab" data-target="skills">Skills<span class="tab-ext">.json</span></button>
+  <button class="tab" data-target="education">Education<span class="tab-ext">.yml</span></button>
+  <button class="tab" data-target="projects">Projects<span class="tab-ext">.git</span></button>
+  <button class="tab" data-target="certificates">Certs<span class="tab-ext">.pdf</span></button>
+  <button class="tab" data-target="journey">Journey<span class="tab-ext">.log</span></button>
+  <button class="tab" data-target="contact">Contact<span class="tab-ext">.sh</span></button>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+</nav>
+
+<!-- ===== SIDEBAR GUTTER (decorative line numbers, desktop only) ===== -->
+<div class="gutter" aria-hidden="true"></div>
+
+<main>
+
+<!-- ===================== HOME ===================== -->
+<section id="home" class="section hero">
+  <div class="section-inner">
+    <div class="line-tag"><span class="ln">01</span> <span class="comment">// entry point</span></div>
+
+    <div class="terminal-window">
+      <div class="terminal-bar">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <span class="terminal-title">whoami.sh</span>
+      </div>
+      <div class="terminal-body">
+        <p><span class="prompt">sarathi@srmvec</span>:<span class="path">~</span>$ whoami</p>
+        <h1 class="hero-name">B. Sarathi</h1>
+        <p class="hero-role">
+          <span class="bracket">&gt;</span> <span id="typed"></span><span class="cursor-blink">_</span>
+        </p>
+        <p class="hero-desc">B.Tech Information Technology, 3rd Year @ SRM Valliammai Engineering College. Building with Java &amp; DSA, aiming for an SDE role — one commit at a time.</p>
+
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">9.11</span><span class="stat-label">CGPA</span></div>
+          <div class="stat"><span class="stat-num">3rd</span><span class="stat-label">Year, B.Tech IT</span></div>
+          <div class="stat"><span class="stat-num">SDE</span><span class="stat-label">Target Role</span></div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary" id="resumeBtn"><i class="fa-solid fa-download"></i> Download Resume</a>
+          <a href="https://github.com/Sarathix3" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="#" class="btn btn-ghost" id="linkedinBtn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span></span>scroll</div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about" class="section">
+  <div class="section-inner">
+    <div class="line-tag"><span class="ln">02</span> <span class="comment">// about-me.md</span></div>
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="about-photo-row">
+          <img src="assets/profile-photo.jpg" alt="B. Sarathi" class="about-photo" />
+          <div class="about-photo-caption">
+            <span class="about-photo-name">B. Sarathi</span>
+            <span class="about-photo-role">Aspiring SDE</span>
+          </div>
+        </div>
+        <p>I'm <strong>Sarathi</strong>, a third-year Information Technology undergraduate at <strong>SRM Valliammai Engineering College</strong>, currently holding a <strong>9.11 CGPA</strong>. I spend most of my time between lecture notes and a code editor — working through Data Structures &amp; Algorithms, sharpening my Java fundamentals, and shipping small full-stack projects to learn how real applications are actually built.</p>
+        <p>My goal is straightforward: become a <strong>Software Development Engineer</strong> at a product-driven company. I'm drawn to problems that reward clear thinking — clean logic, efficient algorithms, and code that's easy for the next person (often future-me) to read.</p>
+        <p>Outside of coursework, I like breaking my own projects, reading other people's GitHub repos to see how they structure things, and slowly building the habit of solving one DSA problem a day.</p>
+
+        <div class="about-tags">
+          <span class="pill">Problem Solver</span>
+          <span class="pill">DSA Learner</span>
+          <span class="pill">Full-Stack Curious</span>
+          <span class="pill">Detail-Oriented</span>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <div class="card-header"><i class="fa-solid fa-user"></i> profile.json</div>
+        <pre class="code-block"><span class="k">{</span>
+  <span class="p">"name"</span>: <span class="s">"B. Sarathi"</span>,
+  <span class="p">"role"</span>: <span class="s">"SDE Aspirant"</span>,
+  <span class="p">"college"</span>: <span class="s">"SRM Valliammai Engineering College"</span>,
+  <span class="p">"degree"</span>: <span class="s">"B.Tech - Information Technology"</span>,
+  <span class="p">"year"</span>: <span class="s">"3rd Year"</span>,
+  <span class="p">"cgpa"</span>: <span class="n">9.11</span>,
+  <span class="p">"focus"</span>: <span class="k">[</span><span class="s">"Java"</span>, <span class="s">"DSA"</span>, <span class="s">"Web Dev"</span><span class="k">]</span>,
+  <span class="p">"status"</span>: <span class="s">"open to internships"</span>
+<span class="k">}</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section id="skills" class="section alt">
+  <div class="section-inner">
+    <div class="line-tag"><span class="ln">03</span> <span class="comment">// dependencies</span></div>
+    <h2 class="section-title">Skills</h2>
+    <p class="section-sub">The stack I reach for most, organized the way a project's dependency file would list them.</p>
+
+    <div class="skills-grid" id="skillsGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== EDUCATION ===================== -->
+<section id="education" class="section">
+  <div class="section-inner">
+    <div class="line-tag"><span class="ln">04</span> <span class="comment">// education.yml</span></div>
+    <h2 class="section-title">Education</h2>
+
+    <div class="edu-card">
+      <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div class="edu-body">
+        <h3>B.Tech, Information Technology</h3>
+        <p class="edu-sub">SRM Valliammai Engineering College</p>
+        <div class="edu-meta">
+          <span><i class="fa-solid fa-calendar"></i> 3rd Year (Ongoing)</span>
+          <span><i class="fa-solid fa-star"></i> CGPA: 9.11</span>
+        </div>
+        <div class="edu-bar">
+          <div class="edu-bar-fill" style="width:91.1%"><span class="edu-bar-label">9.11 / 10</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section id="projects" class="section alt">
+  <div class="section-inner">
+    <div class="line-tag"><span class="ln">05</span> <span class="comment">// git log --projects</span></div>
+    <h2 class="section-title">Projects</h2>
+    <p class="section-sub">Pulled straight from <a href="https://github.com/Sarathix3" target="_blank" rel="noopener">github.com/Sarathix3</a>.</p>
+
+    <div class="projects-grid" id="projectsGrid"></div>
+
+    <div class="projects-more">
+      <a href="https://github.com/Sarathix3?tab=repositories" target="_blank" rel="noopener" class="btn btn-ghost">
+        <i class="fa-brands fa-github"></i> View all repositories
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CERTIFICATES ===================== -->
+<section id="certificates" class="section">
+  <div class="section-inner">
+    <div class="line-tag"><span class="ln">06</span> <span class="comment">// certificates/</span></div>
+    <h2 class="section-title">Certificates</h2>
+    <p class="section-sub">Gallery synced from the <a href="https://github.com/Sarathix3/Certificates" target="_blank" rel="noopener">Certificates</a> repository. Add image files there and list them below to display them here.</p>
+
+    <div class="cert-grid" id="certGrid">
+      <div class="cert-placeholder">
+        <i class="fa-solid fa-file-certificate"></i>
+        <p>Certificates will appear here once added.</p>
+        <a href="https://github.com/Sarathix3/Certificates" target="_blank" rel="noopener" class="link-inline">Browse repository <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== JOURNEY ===================== -->
+<section id="journey" class="section alt">
+  <div class="section-inner">
+    <div class="line-tag"><span class="ln">07</span> <span class="comment">// commit history</span></div>
+    <h2 class="section-title">Coding Journey</h2>
+    <p class="section-sub">The roadmap, styled like a commit log — where I've been and what's queued up next.</p>
+
+    <div class="commit-log" id="commitLog"></div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="section">
+  <div class="section-inner">
+    <div class="line-tag"><span class="ln">08</span> <span class="comment">// contact.sh</span></div>
+    <h2 class="section-title">Contact</h2>
+    <p class="section-sub">Open to internships, SDE roles, and anything that involves solving hard problems.</p>
+
+    <div class="contact-grid">
+      <div class="contact-links">
+        <a href="https://github.com/Sarathix3" target="_blank" rel="noopener" class="contact-item">
+          <i class="fa-brands fa-github"></i>
+          <div><span class="contact-label">GitHub</span><span class="contact-value">github.com/Sarathix3</span></div>
+        </a>
+        <a href="#" id="contactLinkedin" class="contact-item">
+          <i class="fa-brands fa-linkedin"></i>
+          <div><span class="contact-label">LinkedIn</span><span class="contact-value">Add your profile URL</span></div>
+        </a>
+        <a href="mailto:your.email@example.com" class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <div><span class="contact-label">Email</span><span class="contact-value">your.email@example.com</span></div>
+        </a>
+        <a href="#" id="contactPhone" class="contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <div><span class="contact-label">Phone</span><span class="contact-value" id="contactPhoneValue">—</span></div>
+        </a>
+        <div class="contact-item" id="contactLocation" style="cursor:default;">
+          <i class="fa-solid fa-location-dot"></i>
+          <div><span class="contact-label">Location</span><span class="contact-value" id="contactLocationValue">—</span></div>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name" />
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com" />
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Let's talk..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary full"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+        <p class="form-note" id="formNote"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> B. Sarathi. Built with HTML, CSS &amp; JavaScript — no framework required.</p>
+</footer>
+
+</main>
+
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="script.js"></script>
+</body>
+</html>
