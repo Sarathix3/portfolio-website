@@ -525,3 +525,27 @@ main{ position:relative; }
 @media (min-width:761px){
   .menu-toggle{ display:none; }
 }
+
+
+/* ==========================================================================
+   REFRESH (v2)
+   ========================================================================== */
+.contact-label{ text-transform:none; letter-spacing:0; }
+
+.skill-card.learning{ border-style:dashed; }
+.skill-card.learning .skill-icon,
+.skill-card.learning .skill-tag{ color:var(--accent-2); }
+
+.cert-card a{ display:block; }
+.cert-card{ transition:border-color .18s ease; }
+.cert-card:hover{ border-color:var(--accent-2); }
+
+.commit.todo .commit-msg{ color:var(--text-dim); }
+.commit.todo::before{ border-style:dashed; }
+
+.hero-desc{ max-width:62ch; }
+.about-text p{ max-width:68ch; }
+
+@media (max-width:600px){
+  .section{ padding:64px 18px; }
+}
