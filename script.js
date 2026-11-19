@@ -2,7 +2,8 @@
 // CONFIG — edit these placeholders with real details
 // ============================================================
 const CONFIG = {
-  linkedin: "", // e.g. "https://linkedin.com/in/your-handle" — leave blank if none
+  linkedin: "https://www.linkedin.com/in/sarathi-boominathan",
+  cgpa: "8.90", // single source of truth: hero, about, profile.json, education
   email: "a6090301@gmail.com",
   phone: "+91-9150643656",
   location: "Chennai, Tamil Nadu",
@@ -23,6 +24,20 @@ const SKILLS = [
   { name: "JavaScript", icon: "fa-brands fa-js", tag: "ES6" },
   { name: "MySQL", icon: "fa-solid fa-database", tag: "relational db" },
   { name: "Git & GitHub", icon: "fa-brands fa-git-alt", tag: "version control" },
+  // DevOps toolchain: level "learning" shows a dashed card; delete the field once you're comfortable
+  { name: "Linux & Bash", icon: "fa-brands fa-linux", tag: "shell scripting", level: "learning" },
+  { name: "Docker", icon: "fa-brands fa-docker", tag: "containers", level: "learning" },
+  { name: "CI/CD", icon: "fa-solid fa-arrows-spin", tag: "GitHub Actions", level: "learning" },
+  { name: "AWS", icon: "fa-brands fa-aws", tag: "cloud basics", level: "learning" },
+  { name: "Kubernetes", icon: "fa-solid fa-dharmachakra", tag: "up next", level: "learning" },
+];
+
+// ============================================================
+// CERTIFICATES — add entries to show them in the gallery
+// image: path inside this repo, e.g. "assets/certificates/aws-cloud.png"
+// ============================================================
+const CERTIFICATES = [
+  // { title: "AWS Cloud Practitioner Essentials", image: "assets/certificates/aws-cloud.png", link: "" },
 ];
 
 // ============================================================
@@ -36,6 +51,8 @@ const PROJECTS = [
     repo: "https://github.com/Sarathix3/hostel-app",
     live: "https://hostel-app-8esr.vercel.app",
   },
+  // Template for a new project:
+  // { name: "...", desc: "...", stack: ["Docker", "GitHub Actions"], repo: "https://github.com/Sarathix3/...", live: "" },
   {
     name: "Calculator App",
     desc: "A responsive calculator with full keyboard support, chained calculations, and graceful handling of invalid input — built without any external libraries.",
@@ -52,9 +69,11 @@ const JOURNEY = [
   { hash: "a1e4f2c", status: "done", title: "Learned C & core programming fundamentals", desc: "Control flow, functions, pointers, memory basics." },
   { hash: "c7d891a", status: "done", title: "Picked up Java & Object-Oriented Programming", desc: "Classes, inheritance, polymorphism, exception handling." },
   { hash: "f3b56e0", status: "done", title: "Started Data Structures & Algorithms", desc: "Arrays, linked lists, stacks, queues, recursion, sorting." },
-  { hash: "9e12ab4", status: "active", title: "Deepening DSA + solving daily problems", desc: "Trees, graphs, dynamic programming — building problem-solving speed." },
-  { hash: "future", status: "todo", title: "System design fundamentals", desc: "Learn scalable architecture basics for SDE interviews." },
-  { hash: "future", status: "todo", title: "Contribute to open source & build a capstone project", desc: "Apply everything in a larger, real-world project." },
+  { hash: "9e12ab4", status: "done", title: "Shipped HostelPro, a full-stack project", desc: "Node.js, Express and MySQL backend deployed on Vercel." },
+  { hash: "b84c7d1", status: "active", title: "Learning Linux, Git workflows & Docker", desc: "Shell scripting, containerizing apps, and a daily DSA habit alongside." },
+  { hash: "future", status: "todo", title: "Automate builds with CI/CD", desc: "GitHub Actions pipelines that test and deploy my projects automatically." },
+  { hash: "future", status: "todo", title: "Cloud & orchestration basics", desc: "AWS fundamentals, then Kubernetes and infrastructure as code." },
+  { hash: "future", status: "todo", title: "Build a DevOps capstone & contribute to open source", desc: "A Dockerized app with a full pipeline, monitoring and documented setup." },
 ];
 
 // ============================================================
@@ -63,6 +82,7 @@ const JOURNEY = [
 document.addEventListener("DOMContentLoaded", () => {
   applyConfig();
   renderSkills();
+  renderCertificates();
   renderProjects();
   renderJourney();
   initTyping();
@@ -84,6 +104,10 @@ function applyConfig() {
   const contactLinkedin = document.getElementById("contactLinkedin");
   const resumeBtn = document.getElementById("resumeBtn");
 
+  document.querySelectorAll("[data-cgpa]").forEach((el) => (el.textContent = CONFIG.cgpa));
+  const eduFill = document.querySelector(".edu-bar-fill");
+  if (eduFill) eduFill.style.width = `${parseFloat(CONFIG.cgpa) * 10}%`;
+
   if (CONFIG.linkedin) {
     linkedinBtn.href = CONFIG.linkedin;
     contactLinkedin.href = CONFIG.linkedin;
@@ -100,11 +124,11 @@ function applyConfig() {
   } else {
     resumeBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      alert("Add a resume link in script.js (CONFIG.resumeUrl) to enable this button.");
+      alert("Resume link not set yet. Add it in script.js (CONFIG.resumeUrl).");
     });
   }
 
-  document.querySelectorAll('a[href="mailto:your.email@example.com"]').forEach((el) => {
+  document.querySelectorAll('a[href^="mailto:"]').forEach((el) => {
     el.href = `mailto:${CONFIG.email}`;
     const valueEl = el.querySelector(".contact-value");
     if (valueEl) valueEl.textContent = CONFIG.email;
@@ -133,9 +157,9 @@ function applyConfig() {
 function initTyping() {
   const el = document.getElementById("typed");
   const phrases = [
-    "console.log('Aspiring SDE');",
-    "learning.stack(['Java','DSA']);",
-    "building(['HostelPro','more']);",
+    "console.log('Aspiring DevOps Engineer');",
+    "learning.stack(['Linux','Docker','CI/CD']);",
+    "building(['HostelPro','pipelines']);",
     "status = 'open to internships';",
   ];
   let phraseIndex = 0, charIndex = 0, deleting = false;
@@ -170,12 +194,24 @@ function renderSkills() {
   const grid = document.getElementById("skillsGrid");
   grid.innerHTML = SKILLS.map(
     (s) => `
-    <div class="skill-card reveal">
+    <div class="skill-card reveal${s.level ? " " + s.level : ""}">
       <div class="skill-icon"><i class="${s.icon}"></i></div>
       <span class="skill-name">${s.name}</span>
-      <span class="skill-tag">${s.tag}</span>
+      <span class="skill-tag">${s.level === "learning" ? "learning: " : ""}${s.tag}</span>
     </div>`
   ).join("");
+}
+
+// ============================================================
+// Render certificates (keeps the placeholder if the list is empty)
+// ============================================================
+function renderCertificates() {
+  if (!CERTIFICATES.length) return;
+  const grid = document.getElementById("certGrid");
+  grid.innerHTML = CERTIFICATES.map((c) => {
+    const inner = `<img src="${c.image}" alt="${c.title}" loading="lazy" /><div class="cert-card-title">${c.title}</div>`;
+    return `<div class="cert-card reveal">${c.link ? `<a href="${c.link}" target="_blank" rel="noopener">${inner}</a>` : inner}</div>`;
+  }).join("");
 }
 
 // ============================================================
